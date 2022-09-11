@@ -10,7 +10,7 @@ final class Product: Model, Content {
     @Field(key: "name")
     var name: String
 
-    @Field(key: "barcode")
+    @OptionalField(key: "barcode")
     var barcode: String?
 
     init() { }

@@ -1,0 +1,7 @@
+#extend("base"):
+  #export("content"):
+    #for(product in products):
+        <p>#(product.name)</p>
+    #endfor
+  #endexport
+#endextend

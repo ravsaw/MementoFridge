@@ -6,9 +6,16 @@ func routes(_ app: Application) throws {
         try await req.view.render("index", ["title": "Hello Vapor!"])
     }
 
-    app.get("hello") { req async -> String in
-        "Hello, world!"
+    try app.register(collection: TodoController())
+    try app.register(collection: ProductController())
+
+    app.get("product") { req async throws in 
+        try await Product.query(on: req.db).all()
     }
 
-    try app.register(collection: TodoController())
+    app.get("product", ":name") { req async throws -> String in 
+        let name = req.parameters.get("name")!
+        try await Product(name: name).create(on: req.db)
+        return "Hello, \(name)!"
+    }
 }
