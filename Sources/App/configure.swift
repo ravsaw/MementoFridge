@@ -14,17 +14,14 @@ public func configure(_ app: Application) throws {
     app.databases.use(.mysql(
         hostname: "localhost",
         port: 3306,
-        username: "fridgememory",
-        password: "TestPassword",
-        database: "fridgememoryDB"
+        username: "mementofridge",
+        password: "testowe",
+        database: "mementofridgeDB"
     ), as: .mysql)
 
-    app.migrations.add(CreateTodo())
     app.migrations.add(CreateProduct())
 
     app.views.use(.leaf)
-
-    
 
     // register routes
     try routes(app)

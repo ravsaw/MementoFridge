@@ -1,0 +1,14 @@
+#extend("base"):
+  #export("content"):
+  
+    <form method="POST" action="/products/add">
+        <div class="input-group">
+        <input type="text" name="name" class="form-control">
+        <input type="text" name="barcode" class="form-control">
+        <span class="input-group-btn">
+            <input class="btn btn-success" type="submit" value="create" />
+        </span>
+        </div>
+    </form>
+  #endexport
+#endextend

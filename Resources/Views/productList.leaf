@@ -1,7 +1,17 @@
 #extend("base"):
   #export("content"):
-    #for(product in products):
-        <p>#(product.name)</p>
-    #endfor
+    <a class="nav-link" href="/products/add">Dodaj nowy</a>
+    <br/>
+    <div class="container">
+      #for(parts in products):
+          <div class="row">
+            #for(product in parts):
+              <div class="col">
+                <p>#(product.name) - #(product.barcode)</p>
+              </div>
+            #endfor
+          </div>
+      #endfor
+    </div>
   #endexport
 #endextend
